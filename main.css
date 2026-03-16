@@ -1,8 +1,3 @@
-/* ========================================
-   CURIE ORIGINALS - USER PROFILE CSS
-   2026 Edition
-   ======================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 /* ========================================
@@ -1150,9 +1145,9 @@ span.mr-4 {
 }
 
 /* ========================================
-   INFO ROW - 2 HOCHKANT CARDS NEBENEINANDER
+   BLOG-STYLE CARDS - 3 PER ROW
    ======================================== */
-.nfx-info-row {
+.nfx-blog-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
@@ -1161,87 +1156,98 @@ span.mr-4 {
   justify-content: space-between !important;
 }
 
-.nfx-info-card {
+.nfx-blog-card {
   flex: 1 1 0 !important;
   min-width: 0 !important;
-  max-width: calc(50% - 10px) !important;
-  width: calc(50% - 10px) !important;
-  min-height: 320px !important;
+  max-width: calc(33.333% - 14px) !important;
+  width: calc(33.333% - 14px) !important;
   display: flex !important;
   flex-direction: column !important;
-  background: linear-gradient(180deg, rgba(18,18,18,.8) 0%, rgba(10,10,10,.6) 100%) !important;
+  background: linear-gradient(180deg, rgba(20,20,20,.95) 0%, rgba(12,12,12,.98) 100%) !important;
   border: 1px solid rgba(229,9,20,.2) !important;
-  border-left: 3px solid var(--nfx-red) !important;
-  padding: 20px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
   text-decoration: none !important;
   color: inherit !important;
   transition: all .3s ease !important;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4) !important;
 }
 
-a.nfx-info-card:hover {
+.nfx-blog-card:hover {
   border-color: var(--nfx-red) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.4), 0 0 25px rgba(229,9,20,.15) !important;
-  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5), 0 0 30px rgba(229,9,20,.25) !important;
+  transform: translateY(-6px) !important;
 }
 
-.nfx-info-card-boosty {
-  border-left-color: var(--nfx-boosty) !important;
-  background: linear-gradient(180deg, rgba(241,95,44,.1) 0%, rgba(10,10,10,.6) 100%) !important;
+a.nfx-blog-card-link:hover {
+  cursor: pointer !important;
 }
 
-a.nfx-info-card-boosty:hover {
-  border-color: var(--nfx-boosty) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.4), 0 0 25px rgba(241,95,44,.2) !important;
-}
-
-.nfx-info-header {
+/* Blog Card Header */
+.nfx-blog-header {
+  background: linear-gradient(180deg, rgba(229,9,20,.15) 0%, rgba(229,9,20,.05) 100%) !important;
+  border-bottom: 1px solid rgba(229,9,20,.2) !important;
+  padding: 24px 20px !important;
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
-  gap: 10px !important;
-  margin-bottom: 14px !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  min-height: 100px !important;
 }
 
-.nfx-info-label {
-  font-family: 'Inter', sans-serif !important;
-  font-size: .9rem !important;
-  font-weight: 800 !important;
+.nfx-blog-icon {
+  font-size: 2rem !important;
+  display: block !important;
+}
+
+.nfx-blog-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
   color: #fff !important;
+  letter-spacing: 3px !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  margin: 0 !important;
+  text-align: center !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
 }
 
-.nfx-info-body {
+/* Blog Card Body */
+.nfx-blog-body {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
+  padding: 20px !important;
+  background: linear-gradient(180deg, rgba(18,18,18,.6) 0%, rgba(10,10,10,.8) 100%) !important;
 }
 
-.nfx-info-body p {
-  margin: 0 0 10px !important;
+.nfx-blog-body p {
+  margin: 0 0 12px !important;
   color: rgba(255,255,255,.75) !important;
   line-height: 1.6 !important;
   font-size: .85rem !important;
   text-align: left !important;
 }
 
-.nfx-info-body p:last-of-type {
+.nfx-blog-body p:last-of-type {
   margin-bottom: 0 !important;
 }
 
-.nfx-info-body strong {
+.nfx-blog-body strong {
   color: #fff !important;
 }
 
-.nfx-info-body em {
+.nfx-blog-body em {
   color: rgba(255,255,255,.6) !important;
   font-style: italic !important;
 }
 
-.nfx-info-cta {
+/* Blog Card CTA */
+.nfx-blog-cta {
   display: inline-block !important;
   margin-top: auto !important;
-  padding-top: 14px !important;
+  padding-top: 16px !important;
   font-size: .8rem !important;
   font-weight: 800 !important;
   color: var(--nfx-red) !important;
@@ -1249,81 +1255,99 @@ a.nfx-info-card-boosty:hover {
   letter-spacing: 1px !important;
 }
 
-.nfx-info-card-boosty .nfx-info-cta {
-  color: var(--nfx-boosty) !important;
-}
-
-/* ========================================
-   BOOSTY STYLES
-   ======================================== */
-.nfx-boosty-icon {
-  width: 18px !important;
-  height: auto !important;
-  object-fit: contain !important;
-  filter: brightness(1.1) !important;
-}
-
-.nfx-title-icon-boosty {
-  background: var(--nfx-boosty) !important;
-}
-
-/* ========================================
-   CREDITS ROW - 4 KLEINE HOCHKANT CARDS
-   ======================================== */
-.nfx-credits-row {
+/* Blog Card Buttons */
+.nfx-blog-buttons {
   display: flex !important;
   flex-direction: row !important;
-  flex-wrap: nowrap !important;
   gap: 12px !important;
-  width: 100% !important;
-  justify-content: space-between !important;
+  margin-top: auto !important;
+  padding-top: 16px !important;
 }
 
-.nfx-credit-card {
-  flex: 1 1 0 !important;
-  min-width: 0 !important;
-  max-width: calc(25% - 9px) !important;
-  width: calc(25% - 9px) !important;
-  min-height: 140px !important;
+.nfx-btn {
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 16px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .75rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  text-decoration: none !important;
+  border-radius: 6px !important;
+  transition: all .25s ease !important;
+}
+
+.nfx-btn-subscribestar {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.nfx-btn-subscribestar:hover {
+  background: linear-gradient(135deg, #ff85ad 0%, #d45579 100%) !important;
+  box-shadow: 0 4px 20px rgba(255,107,157,.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.nfx-btn-boosty {
+  background: linear-gradient(135deg, var(--nfx-boosty) 0%, #d94f1a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.nfx-btn-boosty:hover {
+  background: linear-gradient(135deg, #ff7040 0%, var(--nfx-boosty) 100%) !important;
+  box-shadow: 0 4px 20px rgba(241,95,44,.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Credits Grid inside Card */
+.nfx-credits-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 16px !important;
+  margin-top: 12px !important;
+}
+
+.nfx-credit-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important;
-  padding: 18px 12px !important;
-  background: linear-gradient(180deg, rgba(18,18,18,.6) 0%, rgba(10,10,10,.4) 100%) !important;
-  border: 1px solid rgba(229,9,20,.15) !important;
+  gap: 8px !important;
   text-decoration: none !important;
   transition: all .25s ease !important;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%) !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
 }
 
-.nfx-credit-card img {
-  width: 55px !important;
-  height: 55px !important;
+.nfx-credit-item:hover {
+  background: rgba(229,9,20,.1) !important;
+  transform: translateY(-3px) !important;
+}
+
+.nfx-credit-item img {
+  width: 48px !important;
+  height: 48px !important;
   object-fit: cover !important;
   border: 2px solid rgba(229,9,20,.3) !important;
-  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
+  border-radius: 8px !important;
   transition: all .25s ease !important;
 }
 
-.nfx-credit-card .nfx-credit-name {
+.nfx-credit-item:hover img {
+  border-color: var(--nfx-red) !important;
+  box-shadow: 0 0 15px rgba(229,9,20,.3) !important;
+}
+
+.nfx-credit-item span {
   font-size: .7rem !important;
   font-weight: 700 !important;
   color: rgba(255,255,255,.8) !important;
-  letter-spacing: .5px !important;
   text-align: center !important;
-}
-
-.nfx-credit-card:hover {
-  background: rgba(229,9,20,.1) !important;
-  border-color: var(--nfx-red) !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 15px rgba(229,9,20,.2) !important;
-}
-
-.nfx-credit-card:hover img {
-  border-color: var(--nfx-red) !important;
+  letter-spacing: .5px !important;
 }
 
 /* ========================================
@@ -1404,24 +1428,14 @@ a.nfx-info-card-boosty:hover {
     width: calc(50% - 10px) !important;
   }
   
-  .nfx-info-row {
-    flex-direction: column !important;
-  }
-  
-  .nfx-info-card {
-    max-width: 100% !important;
-    width: 100% !important;
-    min-height: auto !important;
-  }
-  
-  .nfx-credits-row {
+  .nfx-blog-row {
     flex-wrap: wrap !important;
   }
   
-  .nfx-credit-card {
-    flex: 0 0 calc(50% - 6px) !important;
-    max-width: calc(50% - 6px) !important;
-    width: calc(50% - 6px) !important;
+  .nfx-blog-card {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    width: calc(50% - 10px) !important;
   }
   
   .ant-tabs-nav {
@@ -1488,6 +1502,16 @@ a.nfx-info-card-boosty:hover {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;
+  }
+  
+  .nfx-blog-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .nfx-blog-buttons {
+    flex-direction: column !important;
   }
   
   .ant-tabs-tab {
