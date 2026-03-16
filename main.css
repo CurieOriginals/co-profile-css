@@ -1150,23 +1150,15 @@ span.mr-4 {
 }
 
 /* ========================================
-   BLOG-STYLE CARDS - SHOWCASE MATCHING
+   BLOG CARDS - EXACTLY LIKE SHOWCASE
    ======================================== */
 .nfx-blog-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   gap: 20px !important;
+  padding: 25px 0 22px !important;
   width: 100% !important;
-  justify-content: space-between !important;
-}
-
-.nfx-section-showcase + .nfx-section {
-  margin-top: 10px !important;
-}
-
-.nfx-section-showcase + .nfx-section + .nfx-section {
-  margin-top: -5px !important;
 }
 
 .nfx-blog-card {
@@ -1175,115 +1167,86 @@ span.mr-4 {
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
-  background: linear-gradient(180deg, rgba(15,15,15,.95) 0%, rgba(8,8,8,.98) 100%) !important;
-  border: 1px solid rgba(229,9,20,.2) !important;
-  overflow: visible !important;
   text-decoration: none !important;
   color: inherit !important;
-  transition: all .35s cubic-bezier(.25,.1,.25,1) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.5) !important;
-}
-
-/* Corner variants - matching showcase style */
-.nfx-blog-card-left {
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
-}
-
-.nfx-blog-card-center {
-  clip-path: none !important;
-}
-
-.nfx-blog-card-right {
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
-}
-
-.nfx-blog-card::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 3px !important;
-  background: linear-gradient(90deg, var(--nfx-red), rgba(229,9,20,.3), transparent) !important;
-  z-index: 2 !important;
+  transition: transform .35s cubic-bezier(.25,.1,.25,1) !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
 }
 
 .nfx-blog-card:hover {
+  transform: none !important;
+  z-index: 10 !important;
+}
+
+/* Card Inner - Like nfx-card-img */
+.nfx-blog-inner {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 2/3 !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.5) !important;
+  border: 1px solid rgba(229,9,20,.2) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(8,8,8,1) 100%) !important;
+  transition: all .4s ease !important;
+}
+
+.nfx-blog-card:hover .nfx-blog-inner {
   border-color: var(--nfx-red) !important;
   box-shadow: 0 12px 40px rgba(0,0,0,.6), 0 0 40px rgba(229,9,20,.3) !important;
-  transform: translateY(-6px) !important;
 }
 
-a.nfx-blog-card-link:hover {
-  cursor: pointer !important;
-}
-
-/* Floating Icon - Modern Innovative Placement */
-.nfx-blog-icon-wrap {
-  position: absolute !important;
-  top: -18px !important;
-  left: 20px !important;
-  width: 44px !important;
-  height: 44px !important;
-  background: linear-gradient(135deg, var(--nfx-red) 0%, rgba(180,7,16,1) 100%) !important;
+/* Header Area - Top portion with gradient */
+.nfx-blog-header {
+  position: relative !important;
+  padding: 24px 20px 20px !important;
+  background: linear-gradient(180deg, rgba(229,9,20,.15) 0%, rgba(229,9,20,.03) 100%) !important;
+  border-bottom: 1px solid rgba(229,9,20,.15) !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
-  box-shadow: 0 4px 15px rgba(229,9,20,.5) !important;
-  z-index: 10 !important;
-  transition: all .3s ease !important;
-}
-
-.nfx-blog-card:hover .nfx-blog-icon-wrap {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 25px rgba(229,9,20,.6) !important;
+  gap: 14px !important;
 }
 
 .nfx-blog-icon {
-  font-size: 1.3rem !important;
-  display: block !important;
-  filter: grayscale(1) brightness(10) !important;
-  line-height: 1 !important;
-}
-
-/* Blog Card Header - Minimal, Clean */
-.nfx-blog-header {
-  padding: 32px 20px 16px !important;
+  width: 40px !important;
+  height: 40px !important;
   display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 0 !important;
-  border-bottom: 1px solid rgba(229,9,20,.15) !important;
-  background: linear-gradient(180deg, rgba(229,9,20,.08) 0%, transparent 100%) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--nfx-red) !important;
+  font-size: 1.1rem !important;
+  filter: grayscale(1) brightness(10) !important;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
+  flex-shrink: 0 !important;
 }
 
 .nfx-blog-title {
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: 1.8rem !important;
+  font-size: 1.5rem !important;
   font-weight: 400 !important;
   color: #fff !important;
-  letter-spacing: 3px !important;
+  letter-spacing: 2px !important;
   text-transform: uppercase !important;
   margin: 0 !important;
-  text-align: left !important;
   text-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
 }
 
-/* Blog Card Body */
+/* Body Area */
 .nfx-blog-body {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
   padding: 16px 20px 20px !important;
-  background: transparent !important;
 }
 
 .nfx-blog-body p {
-  margin: 0 0 10px !important;
+  margin: 0 0 8px !important;
   color: rgba(255,255,255,.7) !important;
-  line-height: 1.55 !important;
-  font-size: .85rem !important;
+  line-height: 1.5 !important;
+  font-size: .8rem !important;
   text-align: left !important;
 }
 
@@ -1296,19 +1259,19 @@ a.nfx-blog-card-link:hover {
 }
 
 .nfx-blog-body em {
-  color: rgba(255,255,255,.55) !important;
+  color: rgba(255,255,255,.5) !important;
   font-style: italic !important;
 }
 
-/* Blog Card CTA - Rectangular Button */
+/* CTA Button */
 .nfx-blog-cta {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 10px !important;
   margin-top: auto !important;
-  padding: 12px 20px !important;
-  font-size: .8rem !important;
+  padding: 10px 16px !important;
+  font-size: .75rem !important;
   font-weight: 800 !important;
   color: #fff !important;
   text-transform: uppercase !important;
@@ -1316,28 +1279,27 @@ a.nfx-blog-card-link:hover {
   border: 2px solid var(--nfx-red) !important;
   background: transparent !important;
   transition: all .25s ease !important;
+  align-self: flex-start !important;
 }
 
 .nfx-blog-card:hover .nfx-blog-cta {
   background: var(--nfx-red) !important;
-  box-shadow: 0 0 20px rgba(229,9,20,.4) !important;
 }
 
 .nfx-cta-arrow {
   width: 0 !important;
   height: 0 !important;
   border-style: solid !important;
-  border-width: 5px 0 5px 8px !important;
+  border-width: 4px 0 4px 7px !important;
   border-color: transparent transparent transparent #fff !important;
 }
 
-/* Blog Card Buttons */
+/* Support Buttons */
 .nfx-blog-buttons {
   display: flex !important;
   flex-direction: row !important;
-  gap: 10px !important;
+  gap: 8px !important;
   margin-top: auto !important;
-  padding-top: 12px !important;
 }
 
 .nfx-btn {
@@ -1345,67 +1307,62 @@ a.nfx-blog-card-link:hover {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 12px 14px !important;
+  padding: 10px 12px !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: .7rem !important;
+  font-size: .65rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  letter-spacing: .5px !important;
   text-decoration: none !important;
   transition: all .25s ease !important;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%) !important;
+  clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%) !important;
 }
 
 .nfx-btn-subscribestar {
   background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%) !important;
   color: #fff !important;
-  border: none !important;
 }
 
 .nfx-btn-subscribestar:hover {
-  background: linear-gradient(135deg, #ff85ad 0%, #d45579 100%) !important;
-  box-shadow: 0 4px 20px rgba(255,107,157,.4) !important;
+  filter: brightness(1.15) !important;
   transform: translateY(-2px) !important;
 }
 
 .nfx-btn-boosty {
   background: linear-gradient(135deg, var(--nfx-boosty) 0%, #d94f1a 100%) !important;
   color: #fff !important;
-  border: none !important;
 }
 
 .nfx-btn-boosty:hover {
-  background: linear-gradient(135deg, #ff7040 0%, var(--nfx-boosty) 100%) !important;
-  box-shadow: 0 4px 20px rgba(241,95,44,.4) !important;
+  filter: brightness(1.15) !important;
   transform: translateY(-2px) !important;
 }
 
-/* Credits Grid inside Card */
+/* Credits Grid */
 .nfx-credits-grid {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 12px !important;
-  margin-top: 8px !important;
+  gap: 10px !important;
+  margin-top: 6px !important;
 }
 
 .nfx-credit-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 6px !important;
+  gap: 5px !important;
   text-decoration: none !important;
   transition: all .25s ease !important;
-  padding: 8px !important;
+  padding: 6px !important;
 }
 
 .nfx-credit-item:hover {
-  background: rgba(229,9,20,.15) !important;
-  transform: translateY(-3px) !important;
+  background: rgba(229,9,20,.1) !important;
 }
 
 .nfx-credit-item img {
-  width: 42px !important;
-  height: 42px !important;
+  width: 36px !important;
+  height: 36px !important;
   object-fit: cover !important;
   border: 2px solid rgba(229,9,20,.3) !important;
   transition: all .25s ease !important;
@@ -1413,15 +1370,48 @@ a.nfx-blog-card-link:hover {
 
 .nfx-credit-item:hover img {
   border-color: var(--nfx-red) !important;
-  box-shadow: 0 0 15px rgba(229,9,20,.3) !important;
 }
 
 .nfx-credit-item span {
-  font-size: .65rem !important;
+  font-size: .6rem !important;
   font-weight: 700 !important;
-  color: rgba(255,255,255,.8) !important;
+  color: rgba(255,255,255,.7) !important;
   text-align: center !important;
-  letter-spacing: .5px !important;
+}
+
+/* Corner Accents - Like Showcase */
+.nfx-blog-corner {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid var(--nfx-red) !important;
+  transition: all .35s ease !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  z-index: 5 !important;
+}
+
+.nfx-blog-corner-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.nfx-blog-corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.nfx-blog-corner-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.nfx-blog-corner-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+.nfx-blog-card:hover .nfx-blog-corner {
+  opacity: 1 !important;
+  width: 25px !important;
+  height: 25px !important;
+  filter: drop-shadow(0 0 8px var(--nfx-red-glow)) !important;
+}
+
+/* Card Name Below */
+.nfx-blog-name {
+  display: block !important;
+  margin-top: 12px !important;
+  font-weight: 700 !important;
+  font-size: .95rem !important;
+  color: rgba(255,255,255,.9) !important;
+  text-align: center !important;
+  letter-spacing: 1px !important;
 }
 
 /* ========================================
@@ -1504,17 +1494,10 @@ a.nfx-blog-card-link:hover {
   
   .nfx-blog-row {
     flex-wrap: wrap !important;
-    gap: 30px 20px !important;
   }
   
   .nfx-blog-card {
     flex: 0 0 calc(50% - 10px) !important;
-  }
-  
-  .nfx-blog-card-left,
-  .nfx-blog-card-center,
-  .nfx-blog-card-right {
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
   }
   
   .ant-tabs-nav {
