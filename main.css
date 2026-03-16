@@ -1150,37 +1150,43 @@ span.mr-4 {
 }
 
 /* ========================================
-   BLOG-STYLE CARDS - 3 PER ROW
+   BLOG-STYLE CARDS - SHOWCASE MATCHING
    ======================================== */
 .nfx-blog-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   gap: 20px !important;
-  padding: 25px 0 22px !important;
   width: 100% !important;
   justify-content: space-between !important;
 }
 
-.nfx-blog-card {
-  flex: 1 1 0 !important;
-  min-width: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background: linear-gradient(180deg, rgba(229,9,20,.12) 0%, rgba(15,15,15,.85) 35%, rgba(10,10,10,.9) 100%) !important;
-  border: 1px solid rgba(229,9,20,.25) !important;
-  overflow: hidden !important;
-  text-decoration: none !important;
-  color: inherit !important;
-  transition: all .3s ease !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,.4) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+.nfx-section-showcase + .nfx-section {
+  margin-top: 10px !important;
 }
 
-/* Corner variants */
+.nfx-section-showcase + .nfx-section + .nfx-section {
+  margin-top: -5px !important;
+}
+
+.nfx-blog-card {
+  flex: 1 !important;
+  min-width: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: linear-gradient(180deg, rgba(15,15,15,.95) 0%, rgba(8,8,8,.98) 100%) !important;
+  border: 1px solid rgba(229,9,20,.2) !important;
+  overflow: visible !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all .35s cubic-bezier(.25,.1,.25,1) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.5) !important;
+}
+
+/* Corner variants - matching showcase style */
 .nfx-blog-card-left {
-  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
 }
 
 .nfx-blog-card-center {
@@ -1188,12 +1194,23 @@ span.mr-4 {
 }
 
 .nfx-blog-card-right {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%) !important;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
+}
+
+.nfx-blog-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--nfx-red), rgba(229,9,20,.3), transparent) !important;
+  z-index: 2 !important;
 }
 
 .nfx-blog-card:hover {
   border-color: var(--nfx-red) !important;
-  box-shadow: 0 8px 40px rgba(0,0,0,.5), 0 0 30px rgba(229,9,20,.25) !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,.6), 0 0 40px rgba(229,9,20,.3) !important;
   transform: translateY(-6px) !important;
 }
 
@@ -1201,54 +1218,71 @@ a.nfx-blog-card-link:hover {
   cursor: pointer !important;
 }
 
-/* Blog Card Header - Glass effect with matching red */
-.nfx-blog-header {
-  background: linear-gradient(180deg, rgba(229,9,20,.2) 0%, rgba(229,9,20,.08) 100%) !important;
-  border-bottom: 1px solid rgba(229,9,20,.3) !important;
-  padding: 24px 20px !important;
+/* Floating Icon - Modern Innovative Placement */
+.nfx-blog-icon-wrap {
+  position: absolute !important;
+  top: -18px !important;
+  left: 20px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: linear-gradient(135deg, var(--nfx-red) 0%, rgba(180,7,16,1) 100%) !important;
   display: flex !important;
-  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 12px !important;
-  min-height: 100px !important;
-  backdrop-filter: blur(5px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
+  box-shadow: 0 4px 15px rgba(229,9,20,.5) !important;
+  z-index: 10 !important;
+  transition: all .3s ease !important;
+}
+
+.nfx-blog-card:hover .nfx-blog-icon-wrap {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(229,9,20,.6) !important;
 }
 
 .nfx-blog-icon {
-  font-size: 2rem !important;
+  font-size: 1.3rem !important;
   display: block !important;
   filter: grayscale(1) brightness(10) !important;
+  line-height: 1 !important;
+}
+
+/* Blog Card Header - Minimal, Clean */
+.nfx-blog-header {
+  padding: 32px 20px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(229,9,20,.15) !important;
+  background: linear-gradient(180deg, rgba(229,9,20,.08) 0%, transparent 100%) !important;
 }
 
 .nfx-blog-title {
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: 1.6rem !important;
+  font-size: 1.8rem !important;
   font-weight: 400 !important;
   color: #fff !important;
   letter-spacing: 3px !important;
   text-transform: uppercase !important;
   margin: 0 !important;
-  text-align: center !important;
+  text-align: left !important;
   text-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
 }
 
-/* Blog Card Body - Glass effect */
+/* Blog Card Body */
 .nfx-blog-body {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
-  padding: 20px !important;
-  background: linear-gradient(180deg, rgba(20,20,20,.5) 0%, rgba(10,10,10,.7) 100%) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  padding: 16px 20px 20px !important;
+  background: transparent !important;
 }
 
 .nfx-blog-body p {
-  margin: 0 0 12px !important;
-  color: rgba(255,255,255,.75) !important;
-  line-height: 1.6 !important;
+  margin: 0 0 10px !important;
+  color: rgba(255,255,255,.7) !important;
+  line-height: 1.55 !important;
   font-size: .85rem !important;
   text-align: left !important;
 }
@@ -1262,39 +1296,48 @@ a.nfx-blog-card-link:hover {
 }
 
 .nfx-blog-body em {
-  color: rgba(255,255,255,.6) !important;
+  color: rgba(255,255,255,.55) !important;
   font-style: italic !important;
 }
 
-/* Blog Card CTA with Arrow */
+/* Blog Card CTA - Rectangular Button */
 .nfx-blog-cta {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 10px !important;
   margin-top: auto !important;
-  padding-top: 16px !important;
-  font-size: .85rem !important;
+  padding: 12px 20px !important;
+  font-size: .8rem !important;
   font-weight: 800 !important;
   color: #fff !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
+  border: 2px solid var(--nfx-red) !important;
+  background: transparent !important;
+  transition: all .25s ease !important;
+}
+
+.nfx-blog-card:hover .nfx-blog-cta {
+  background: var(--nfx-red) !important;
+  box-shadow: 0 0 20px rgba(229,9,20,.4) !important;
 }
 
 .nfx-cta-arrow {
   width: 0 !important;
   height: 0 !important;
   border-style: solid !important;
-  border-width: 6px 0 6px 10px !important;
-  border-color: transparent transparent transparent var(--nfx-red) !important;
+  border-width: 5px 0 5px 8px !important;
+  border-color: transparent transparent transparent #fff !important;
 }
 
 /* Blog Card Buttons */
 .nfx-blog-buttons {
   display: flex !important;
   flex-direction: row !important;
-  gap: 12px !important;
+  gap: 10px !important;
   margin-top: auto !important;
-  padding-top: 16px !important;
+  padding-top: 12px !important;
 }
 
 .nfx-btn {
@@ -1302,9 +1345,9 @@ a.nfx-blog-card-link:hover {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 12px 16px !important;
+  padding: 12px 14px !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: .75rem !important;
+  font-size: .7rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
@@ -1341,18 +1384,18 @@ a.nfx-blog-card-link:hover {
 .nfx-credits-grid {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 16px !important;
-  margin-top: 12px !important;
+  gap: 12px !important;
+  margin-top: 8px !important;
 }
 
 .nfx-credit-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
   text-decoration: none !important;
   transition: all .25s ease !important;
-  padding: 10px !important;
+  padding: 8px !important;
 }
 
 .nfx-credit-item:hover {
@@ -1361,8 +1404,8 @@ a.nfx-blog-card-link:hover {
 }
 
 .nfx-credit-item img {
-  width: 48px !important;
-  height: 48px !important;
+  width: 42px !important;
+  height: 42px !important;
   object-fit: cover !important;
   border: 2px solid rgba(229,9,20,.3) !important;
   transition: all .25s ease !important;
@@ -1374,7 +1417,7 @@ a.nfx-blog-card-link:hover {
 }
 
 .nfx-credit-item span {
-  font-size: .7rem !important;
+  font-size: .65rem !important;
   font-weight: 700 !important;
   color: rgba(255,255,255,.8) !important;
   text-align: center !important;
@@ -1461,6 +1504,7 @@ a.nfx-blog-card-link:hover {
   
   .nfx-blog-row {
     flex-wrap: wrap !important;
+    gap: 30px 20px !important;
   }
   
   .nfx-blog-card {
@@ -1470,7 +1514,7 @@ a.nfx-blog-card-link:hover {
   .nfx-blog-card-left,
   .nfx-blog-card-center,
   .nfx-blog-card-right {
-    clip-path: none !important;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
   }
   
   .ant-tabs-nav {
