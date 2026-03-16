@@ -914,19 +914,30 @@ span.mr-4 {
 }
 
 /* ========================================
-   SHOWCASE GRID
+   SHOWCASE GRID - 3 CARDS NEBENEINANDER
    ======================================== */
 .nfx-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 25px 0 22px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 20px !important;
+  padding: 25px 0 22px !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+}
+
+.nfx-showcase-grid > .nfx-card {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: calc(33.333% - 14px) !important;
+  width: calc(33.333% - 14px) !important;
 }
 
 /* ========================================
    CHARACTER CARDS
    ======================================== */
 .nfx-card {
+  display: block !important;
   text-decoration: none;
   transition: transform .35s cubic-bezier(.25,.1,.25,1);
   will-change: transform;
@@ -1139,209 +1150,180 @@ span.mr-4 {
 }
 
 /* ========================================
-   INFO GRID (2x2 LAYOUT)
+   INFO ROW - 2 HOCHKANT CARDS NEBENEINANDER
    ======================================== */
-.nfx-info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+.nfx-info-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 20px !important;
+  width: 100% !important;
+  justify-content: space-between !important;
 }
 
 .nfx-info-card {
-  background: linear-gradient(180deg, rgba(18,18,18,.6) 0%, rgba(10,10,10,.4) 100%);
-  border-left: 3px solid var(--nfx-red);
-  padding: 20px 24px;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: calc(50% - 10px) !important;
+  width: calc(50% - 10px) !important;
+  min-height: 320px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: linear-gradient(180deg, rgba(18,18,18,.8) 0%, rgba(10,10,10,.6) 100%) !important;
+  border: 1px solid rgba(229,9,20,.2) !important;
+  border-left: 3px solid var(--nfx-red) !important;
+  padding: 20px !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all .3s ease !important;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)) !important;
+}
+
+a.nfx-info-card:hover {
+  border-color: var(--nfx-red) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.4), 0 0 25px rgba(229,9,20,.15) !important;
+  transform: translateY(-4px) !important;
 }
 
 .nfx-info-card-boosty {
-  border-left-color: var(--nfx-boosty);
-  background: linear-gradient(180deg, rgba(241,95,44,.08) 0%, rgba(10,10,10,.4) 100%);
+  border-left-color: var(--nfx-boosty) !important;
+  background: linear-gradient(180deg, rgba(241,95,44,.1) 0%, rgba(10,10,10,.6) 100%) !important;
 }
 
-.nfx-info-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+a.nfx-info-card-boosty:hover {
+  border-color: var(--nfx-boosty) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.4), 0 0 25px rgba(241,95,44,.2) !important;
+}
+
+.nfx-info-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.nfx-info-label {
   font-family: 'Inter', sans-serif !important;
-  font-size: .95rem;
-  font-weight: 800;
-  color: #fff;
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: .9rem !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
 }
 
-.nfx-info-title-boosty .nfx-title-icon {
-  background: var(--nfx-boosty);
+.nfx-info-body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
-.nfx-info-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.nfx-info-body p {
+  margin: 0 0 10px !important;
+  color: rgba(255,255,255,.75) !important;
+  line-height: 1.6 !important;
+  font-size: .85rem !important;
+  text-align: left !important;
 }
 
-.nfx-info-content p {
-  margin: 0 0 10px;
-  color: rgba(255,255,255,.75);
-  line-height: 1.6;
-  font-size: .9rem;
+.nfx-info-body p:last-of-type {
+  margin-bottom: 0 !important;
 }
 
-.nfx-info-content p:last-of-type {
-  margin-bottom: 0;
+.nfx-info-body strong {
+  color: #fff !important;
 }
 
-.nfx-info-content strong {
-  color: #fff;
+.nfx-info-body em {
+  color: rgba(255,255,255,.6) !important;
+  font-style: italic !important;
 }
 
-.nfx-info-content em {
-  color: rgba(255,255,255,.6);
-  font-style: italic;
+.nfx-info-cta {
+  display: inline-block !important;
+  margin-top: auto !important;
+  padding-top: 14px !important;
+  font-size: .8rem !important;
+  font-weight: 800 !important;
+  color: var(--nfx-red) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
 }
 
-.nfx-info-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #fff;
-  color: #000;
-  font-weight: 800;
-  font-size: .85rem;
-  padding: 12px 20px;
-  margin-top: auto;
-  text-decoration: none;
-  transition: all .25s ease;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
-  align-self: flex-start;
-}
-
-.nfx-info-btn::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 5px 0 5px 8px;
-  border-color: transparent transparent transparent #000;
-  transition: border-color .25s ease;
-}
-
-.nfx-info-btn:hover {
-  background: var(--nfx-red);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(229,9,20,.4);
-}
-
-.nfx-info-btn:hover::before {
-  border-color: transparent transparent transparent #fff;
+.nfx-info-card-boosty .nfx-info-cta {
+  color: var(--nfx-boosty) !important;
 }
 
 /* ========================================
    BOOSTY STYLES
    ======================================== */
 .nfx-boosty-icon {
-  width: 18px;
-  height: auto;
-  object-fit: contain;
-  filter: brightness(1.1);
+  width: 18px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: brightness(1.1) !important;
 }
 
 .nfx-title-icon-boosty {
-  background: var(--nfx-boosty);
-}
-
-.nfx-title-line-boosty {
-  background: linear-gradient(90deg, var(--nfx-boosty), transparent);
-}
-
-.nfx-support-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--nfx-boosty);
-  color: #000;
-  font-weight: 800;
-  font-size: .85rem;
-  padding: 12px 20px;
-  margin-top: auto;
-  text-decoration: none;
-  transition: all .25s ease;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
-  align-self: flex-start;
-}
-
-.nfx-support-btn:hover {
-  background: #fff;
-  color: #000;
-  box-shadow: 0 0 20px var(--nfx-boosty-glow);
+  background: var(--nfx-boosty) !important;
 }
 
 /* ========================================
-   TEXT LINK
+   CREDITS ROW - 4 KLEINE HOCHKANT CARDS
    ======================================== */
-.nfx-text-link {
-  color: #fff !important;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.nfx-text-link:hover {
-  text-decoration: underline;
-}
-
-/* ========================================
-   CREDITS GRID
-   ======================================== */
-.nfx-credits-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+.nfx-credits-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+  width: 100% !important;
+  justify-content: space-between !important;
 }
 
 .nfx-credit-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 12px;
-  background: linear-gradient(180deg, rgba(18,18,18,.6) 0%, rgba(10,10,10,.4) 100%);
-  border: 1px solid rgba(229,9,20,.15);
-  text-decoration: none;
-  transition: all .25s ease;
-  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: calc(25% - 9px) !important;
+  width: calc(25% - 9px) !important;
+  min-height: 140px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 18px 12px !important;
+  background: linear-gradient(180deg, rgba(18,18,18,.6) 0%, rgba(10,10,10,.4) 100%) !important;
+  border: 1px solid rgba(229,9,20,.15) !important;
+  text-decoration: none !important;
+  transition: all .25s ease !important;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%) !important;
 }
 
 .nfx-credit-card img {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
-  border: 2px solid rgba(229,9,20,.3);
-  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
-  transition: all .25s ease;
+  width: 55px !important;
+  height: 55px !important;
+  object-fit: cover !important;
+  border: 2px solid rgba(229,9,20,.3) !important;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%) !important;
+  transition: all .25s ease !important;
 }
 
 .nfx-credit-card .nfx-credit-name {
-  font-size: .7rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.8);
-  letter-spacing: .5px;
-  text-align: center;
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.8) !important;
+  letter-spacing: .5px !important;
+  text-align: center !important;
 }
 
 .nfx-credit-card:hover {
-  background: rgba(229,9,20,.1);
-  border-color: var(--nfx-red);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 15px rgba(229,9,20,.2);
+  background: rgba(229,9,20,.1) !important;
+  border-color: var(--nfx-red) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 15px rgba(229,9,20,.2) !important;
 }
 
 .nfx-credit-card:hover img {
-  border-color: var(--nfx-red);
+  border-color: var(--nfx-red) !important;
 }
 
 /* ========================================
@@ -1413,16 +1395,33 @@ span.mr-4 {
    ======================================== */
 @media (max-width: 900px) {
   .nfx-showcase-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    flex-wrap: wrap !important;
   }
   
-  .nfx-info-grid {
-    grid-template-columns: 1fr;
+  .nfx-showcase-grid > .nfx-card {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    width: calc(50% - 10px) !important;
   }
   
-  .nfx-credits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .nfx-info-row {
+    flex-direction: column !important;
+  }
+  
+  .nfx-info-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+  
+  .nfx-credits-row {
+    flex-wrap: wrap !important;
+  }
+  
+  .nfx-credit-card {
+    flex: 0 0 calc(50% - 6px) !important;
+    max-width: calc(50% - 6px) !important;
+    width: calc(50% - 6px) !important;
   }
   
   .ant-tabs-nav {
@@ -1485,13 +1484,10 @@ span.mr-4 {
     display: none;
   }
   
-  .nfx-showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .nfx-credits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .nfx-showcase-grid > .nfx-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
   
   .ant-tabs-tab {
